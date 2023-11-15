@@ -167,7 +167,7 @@ let updateUserData = (data) => {
     return new Promise(async (resolve, reject) => {
         try {
             if (!data.id) {
-               
+
                 resolve({
                     errCode: 2,
                     errMessage: 'Mising required parameters'
