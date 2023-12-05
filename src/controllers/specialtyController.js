@@ -1,7 +1,7 @@
 import specialtyService from "../services/specialtyService";
 
 let createSpecialty = async (req, res) => {
-    try {
+    try{
         let infor = await specialtyService.createSpecialty(req.body);
         return res.status(200).json(
             infor
@@ -10,7 +10,8 @@ let createSpecialty = async (req, res) => {
         console.log(e);
         return res.status(200).json({
             errCode: -1,
-            errMessage: 'Error from the servre'
+            errMessage: 'Error from the server'
+
         })
     }
 }

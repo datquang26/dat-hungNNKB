@@ -1,4 +1,3 @@
-const { reject } = require("lodash");
 const db = require("../models");
 
 let createSpecialty = (data) => {
@@ -8,19 +7,18 @@ let createSpecialty = (data) => {
                 || !data.imageBase64
                 || !data.descriptionHTML
                 || !data.descriptionMarkdown
-                
-                ) {
+            ) {
                     resolve({
                         errCode: 1,
                         errMessage: 'Missing parameter'
                     })
-                } else {
-                    await db.Specialty.create({
-                        name:data.name,
-                        image:data.imageBase64,
-                        descriptionHTML: data.descriptionHTML,
-                        descriptionMarkdown: data.descriptionMarkdown
-                    })
+            } else {
+                await db.Specialty.create({
+                    name: data.name,
+                    image: data.imageBase64,
+                    descriptionHTML: data.descriptionHTML,
+                    descriptionMarkdown: data.descriptionMarkdown
+                })
 
                     resolve({
                         errCode: 0,
@@ -34,6 +32,6 @@ let createSpecialty = (data) => {
     })
 } 
 
-module.export = {
-    createSpecialty:createSpecialty
+module.exports = {
+    createSpecialty: createSpecialty
 }
